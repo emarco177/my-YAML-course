@@ -1,10 +1,10 @@
 name: FastApi YamlHouse warehouse server
-
+# Tells Github how to run the workflows
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "*" ]
 
 permissions:
   contents: read
@@ -27,5 +27,4 @@ jobs:
         pipenv install --system
     - name: Run tests with pytest
       run: |
-        export PYTHONPATH=.
         pipenv run pytest . -s -v
