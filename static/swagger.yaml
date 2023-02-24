@@ -1,0 +1,31 @@
+---
+openapi: 3.0.2
+info:
+  title: YamlWareHouse
+  version: 0.1.0
+tags:
+  - name: validate
+    description: Validate your YAML
+servers:
+  - url: http://0.0.0.0:8000/api
+paths:
+  "/validate":
+    post:
+      tags:
+        - validate
+      summary: Validate Yaml document correctness
+      requestBody:
+        description: YAML document payload
+        required: true
+        content:
+          application/x-yaml:
+            schema:
+              required: true
+              type: string
+      operationId: validate_validate_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
