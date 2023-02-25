@@ -32,6 +32,17 @@ paths:
             application/json:
               schema: {}
   "/yaml":
+    get:
+      tags:
+        - YAML
+      summary: Get yaml docs List
+      operationId: read_yaml_list_yaml_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
     post:
       tags:
         - YAML
@@ -46,4 +57,72 @@ paths:
             application/json:
               schema: {}
 
-
+  "/yaml/{yaml_doc_id}":
+    get:
+      tags:
+        - YAML
+      summary: Get yaml doc by Id
+      operationId: read_yaml_yaml__yaml_doc_id__get
+      parameters:
+      - required: true
+        schema:
+          title: Yaml Document Id
+          type: string
+        name: yaml_doc_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema: {}
+    put:
+      tags:
+        - YAML
+      summary: Update Yaml
+      operationId: update_yaml_yaml__yaml_doc_id__put
+      parameters:
+      - required: true
+        schema:
+          title: Yaml Doc Id
+          type: string
+        name: yaml_doc_id
+        in: path
+      requestBody:
+        <<: *YAMLRequestBody
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema: {}
+    delete:
+      tags:
+        - YAML
+      summary: Delete Yaml
+      operationId: delete_yaml_yaml__yaml_doc_id__delete
+      parameters:
+      - required: true
+        schema:
+          title: Yaml Doc Id
+          type: string
+        name: yaml_doc_id
+        in: path
+      responses:
+        '204':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema: {}
